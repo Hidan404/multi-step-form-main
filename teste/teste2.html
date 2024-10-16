@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Multi-Step</title>
+    <style>
+        .step-btn {
+            cursor: pointer;
+            padding: 10px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+        }
+        .active {
+            background-color: #007bff;
+            color: #fff;
+        }
+        #content {
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .success {
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Formulário Multi-Step</h1>
+        <div>
+            <button class="step-btn active" data-step="1">01 Passo</button>
+            <button class="step-btn" data-step="2">02 Passo</button>
+            <button class="step-btn" data-step="3">03 Passo</button>
+            <button class="step-btn" data-step="4">04 Passo</button>
+        </div>
+    </header>
+    
+    <div id="content"></div>
+    <button id="next-btn">Próximo</button>
+    <div class="error" id="error-msg"></div>
+    <div class="success" id="success-msg"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const stepButtons = document.querySelectorAll(".step-btn");
+            const contentDiv = document.getElementById("content");
+            const nextButton = document.getElementById("next-btn");
+            const errorMsg = document.getElementById("error-msg");
+            const successMsg = document.getElementById("success-msg");
+            let currentStep = 1;
+
+            // Função para carregar o conteúdo baseado no passo
+            function loadContent(step) {
+                let content = "";
+                switch (step) {
+                    case 1:
+                        content = `<h2>Passo 1</h2><input type="text" id="input1" placeholder="Nome" required />`;
+                        break;
+                    case 2:
+                        content = `<h2>Passo 2</h2><input type="email" id="input2" placeholder="Email" required />`;
+                        break;
+                    case 3:
+                        content = `<h2>Passo 3</h2><input type="text" id="input3" placeholder="Telefone" required />`;
+                        break;
+                    case 4:
+                        content = `<h2>Passo 4</h2><input type="text" id="input4" placeholder="Mensagem" required />`;
+                        break;
+                }
+                contentDiv.innerHTML = content;
+                errorMsg.textContent = ""; // Limpar mensagens de erro
+                successMsg.textContent = ""; // Limpar mensagens de sucesso
+            }
+
+            // Carregar o conteúdo do primeiro passo
+            loadContent(currentStep);
+            stepButtons[currentStep - 1].classList.add("active");
+
+            stepButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    stepButtons.forEach(btn => btn.classList.remove("active"));
+                    button.classList.add("active");
+
+                    currentStep = parseInt(button.dataset.step);
+                    loadContent(currentStep);
+                });
+            });
+
+            // Evento de clique no botão "Próximo"
+            nextButton.addEventListener("click", () => {
+                // Tentar acessar o campo de input atual
+                const inputField = document.getElementById(`input${currentStep}`);
+                
+                if (!inputField || inputField.value.trim() === "") {
+                    errorMsg.textContent = "Por favor, preencha este campo.";
+                    return;
+                }
+
+                if (currentStep === 4) {
+                    // Se for o último passo, salvar os dados
+                    const data = {
+                        nome: document.getElementById("input1").value || "",
+                        email: document.getElementById("input2").value || "",
+                        telefone: document.getElementById("input3").value || "",
+                        mensagem: document.getElementById("input4").value || ""
+                    };
+                    localStorage.setItem("formData", JSON.stringify(data));
+                    successMsg.textContent = "Dados salvos com sucesso no Local Storage!";
+                    errorMsg.textContent = "";
+                    nextButton.disabled = true; // Desativar o botão "Próximo" após salvar
+                } else {
+                    currentStep++;
+                    loadContent(currentStep); // Carregar o próximo passo
+                    stepButtons.forEach(btn => btn.classList.remove("active"));
+                    stepButtons[currentStep - 1].classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

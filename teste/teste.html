@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregar Conteúdo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    display: flex;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.step-btn {
+    padding: 10px 15px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    cursor: pointer;
+}
+
+.step-btn.active {
+    background-color: #007BFF; /* Destaque quando ativo */
+    color: #fff;
+}
+
+#sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-right: 1px solid #ccc;
+}
+
+main {
+    padding: 20px;
+    flex-grow: 1; /* Expande para preencher o espaço restante */
+}
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div>
+        <img src="assets/shared/logo.svg" alt="Logo" />
+    </div>
+    <div class="nav">
+        <button class="step-btn" data-step="1">01 Passo</button>
+        <button class="step-btn" data-step="2">02 Passo</button>
+        <button class="step-btn" data-step="3">03 Passo</button>
+        <button class="step-btn" data-step="4">04 Passo</button>
+    </div>
+</header>
+
+<aside id="sidebar">
+    <div id="content">Selecione um passo para ver o conteúdo.</div>
+</aside>
+
+<main>
+    <button id="next-btn" disabled>Próximo</button>
+</main>
+
+<script>
+   document.addEventListener("DOMContentLoaded", () => {
+    const stepButtons = document.querySelectorAll(".step-btn");
+    const contentDiv = document.getElementById("content");
+    const nextButton = document.getElementById("next-btn");
+    
+    let currentStep = 1; // Inicializa o passo atual
+
+    // Função para carregar o conteúdo
+    function loadContent(step) {
+        switch (step) {
+            case 1:
+                contentDiv.innerHTML = "<h2>Conteúdo do Passo 1</h2><p>Preencha o formulário do Passo 1.</p>";
+                break;
+            case 2:
+                contentDiv.innerHTML = "<h2>Conteúdo do Passo 2</h2><p>Preencha o formulário do Passo 2.</p>";
+                break;
+            case 3:
+                contentDiv.innerHTML = "<h2>Conteúdo do Passo 3</h2><p>Preencha o formulário do Passo 3.</p>";
+                break;
+            case 4:
+                contentDiv.innerHTML = "<h2>Conteúdo do Passo 4</h2><p>Preencha o formulário do Passo 4.</p>";
+                break;
+            default:
+                contentDiv.innerHTML = "<h2>Selecione um passo</h2>";
+        }
+    }
+
+    // Carrega o conteúdo do primeiro passo ao iniciar a página
+    loadContent(currentStep);
+    stepButtons[currentStep - 1].classList.add("active"); // Destaca o primeiro botão
+    nextButton.disabled = false; // Habilita o botão "Próximo"
+
+    stepButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            // Remove a classe ativa de todos os botões
+            stepButtons.forEach(btn => btn.classList.remove("active"));
+            // Adiciona a classe ativa ao botão clicado
+            button.classList.add("active");
+
+            // Atualiza o conteúdo com base no passo
+            currentStep = parseInt(button.dataset.step);
+            loadContent(currentStep);
+            // Habilita o botão "Próximo"
+            nextButton.disabled = false;
+        });
+    });
+
+    nextButton.addEventListener("click", () => {
+        if (currentStep < 4) {
+            currentStep++;
+            // Clica no próximo botão para avançar
+            stepButtons[currentStep - 1].click();
+        }
+    });
+});
+
+
+</script>
+</body>
+</html>
