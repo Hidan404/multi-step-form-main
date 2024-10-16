@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1rem;
+}
+
+:root {
+    --marine-blue: hsl(213, 96%, 18%);
+    --purplish-blue: hsl(243, 100%, 62%);
+    --pastel-blue: hsl(228, 100%, 84%);
+    --light-blue: hsl(206, 94%, 87%);
+    --strawberry-red: hsl(354, 84%, 57%);
+    --cool-gray: hsl(231, 11%, 63%);
+    --light-gray: hsl(229, 24%, 87%);
+    --magnolia: hsl(217, 100%, 97%);
+    --alabaster: hsl(231, 100%, 99%);
+    --white: hsl(0, 0%, 100%);
+}
+
+#box-main {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.menu-steps {
+    height: 100vh;
+    min-width: 29%;
+    background-image: url("/assets/images/bg-sidebar-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 4rem;
+}
+.btn-person {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--purplish-blue);
+    border: 1px solid var(--white);
+    color: var(--white);
+   
+}
+.btn-person:hover {
+    background-color: var(--light-blue);
+    color: var(--cool-gray);
+}
+
+.menu-steps .aling-elements {
+    width: 200px;
+    margin-left: 2rem;
+}
+.menu-steps p{
+    margin-bottom: 0;
+    color: var(--white);
+}
+.menu-steps .color-text {
+    color: var(--pastel-blue);
+}
+.menu-steps span {
+    margin-left: 0;
+}
+
+
+/* Apenas para depuração, remova depois */
+span, p, button {
+    border: 1px solid red;
+  }
+  
+
+
+
+
+/* lado direito da pagina inicial*/
+.main-right {
+
+    margin: 0 auto;
+    width: 50%;
+}
+.main-right h1 {
+    margin-top: 6rem;
+    color: var(--marine-blue);
+}
+.main-right p{
+   color: var(--pastel-blue);
+   margin-bottom: 1.9rem;
+}
+.main-right form,button {
+    color: var(--marine-blue);
+
+}
+
+.main-right form button{
+    margin-top: 6rem;
+    float: right;
+    background-color: var(--marine-blue);
+    color: var(--white);
+    padding: 1rem 1.2rem 1rem 1.2rem;
+    border-radius: 8px;
+}
+.form-control:focus {
+    border-color: purple !important; 
+    box-shadow: none !important; 
+    outline: none !important;
+}
+
+
+
+
+
+
+/* responsividade pagina geral*/
+
+@media (max-width: 768px) {
+    #box-main {
+        flex-direction: column; /
+    }
+
+    .menu-steps {
+        width: 100%; 
+        min-height: 200px; 
+    }
+
+    .main-right {
+        width: 100%; 
+        margin-top: 1rem; 
+    }
+
+    .main-right h1 {
+        margin-top: 2rem; 
+    }
+}
+
