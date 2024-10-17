@@ -18,29 +18,29 @@
 
   <!-- Sidebar start -->
   <div class="container-fluid d-flex" id="box-main">
-    <aside class="col-md-4 menu-steps d-flex flex-column align-items-start order-md-1">
-      <div class="pb-5 d-flex align-items-center justify-content-between aling-elements">
+    <aside id="aside-mobile-style" class="col-md-4 menu-steps d-flex flex-column align-items-start order-md-1">
+      <div id="box-menu-1" class="pb-5 d-flex align-items-center justify-content-between aling-elements">
         <button class="btn-person ">1</button>
         <span class="d-flex flex-column">
           <p class="color-text">Step 1</p>
           <p><strong>Your info</strong></p>
         </span>
       </div>
-      <div class="pb-5 d-flex align-items-center justify-content-between aling-elements">
+      <div id="box-menu-2" class="pb-5 d-flex align-items-center justify-content-between aling-elements">
         <button class="btn-person">2</button>
         <span class="d-flex flex-column">
           <p class="color-text">Step 2</p>
           <p><strong>Select plan</strong></p>
         </span>
       </div>
-      <div class="pb-5 d-flex align-items-center justify-content-between aling-elements">
+      <div id="box-menu-3" class="pb-5 d-flex align-items-center justify-content-between aling-elements">
         <button class="btn-person">3</button>
         <span class="d-flex flex-column">
           <p class="color-text">Step 3</p>
           <p><strong>Add-ons</strong></p>
         </span>
       </div>
-      <div class="d-flex align-items-center justify-content-between aling-elements">
+      <div id="box-menu-4" class="d-flex align-items-center justify-content-between aling-elements">
         <button class="btn-person">4</button>
         <span class="d-flex flex-column">
           <p class="color-text">Step 4</p>
@@ -50,9 +50,9 @@
     </aside>
     <div class="main-right d-flex flex-column col-md-8 order-md-2">
       <h1>Personal info</h1>
-      <p>Please provide your name, email address, and phone number.</p>
+      <p id="text-mobile">Please provide your name, email address, and phone number.</p>
 
-      <form action="form" method="get" class="col ">
+      <form action="form" method="get" class="col form-initial">
         <div class="col mb-5">
           <label for="nome" class="form-label">Name</label>
           <input type="text" id="nome" class="form-control" placeholder=" e.g. Stephen King"  required>
