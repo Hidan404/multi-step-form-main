@@ -36,11 +36,11 @@
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: hsl(213, 96%, 18%);
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px hsl(213, 96%, 18%);
   }
   
   input:checked + .slider:before {
@@ -52,8 +52,21 @@
   /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
+    background-color: hsl(213, 96%, 18%);
   }
   
   .slider.round:before {
     border-radius: 50%;
   }
+
+
+/*Estilos aplicdos pelo js do toggle*/
+.active {
+    font-weight: bold; /* Usando <strong> no CSS */
+    color: hsl(213, 96%, 18%); /* Cor quando ativo */
+  }
+  
+.inactive {
+    color: #ccc; /* Cor quando inativo */
+  }
+  

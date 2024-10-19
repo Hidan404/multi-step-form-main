@@ -83,64 +83,86 @@
         class="step main-right d-flex flex-column col-md-8 order-md-2"
         id="step-1"
       >
-      <h1>Select your plan</h1>
-      <p id="text-mobile">you have the otion of monthly or yearly billing</p>
-      <form action="/submit" method="post">
-        <div class="row row-cols-1 row-cols-md-3 g-2">
-          <!-- Card 1 -->
-          <div class="col">
-            <div class="card card-option text-start" data-option="opcao1">
-              <div class="card-body">
-                <img src="assets/images/icon-arcade.svg" alt="">
-                <p class="card-text mb-0 mt-5">Arcade</p>
-                <p class="card-text">$9/mo</p>
+        <h1>Select your plan</h1>
+        <p id="text-mobile">you have the otion of monthly or yearly billing</p>
+        <form action="/submit" method="post">
+          <div class="row row-cols-1 row-cols-md-3 g-2">
+            <!-- Card 1 -->
+            <div class="col">
+              <div class="card card-option text-start" data-option="opcao1">
+                <div class="card-body">
+                  <img src="assets/images/icon-arcade.svg" alt="" />
+                  <p class="card-text mb-0 mt-5">Arcade</p>
+                  <p class="card-text">$9/mo</p>
+                </div>
               </div>
             </div>
-          </div>
-      
-          <!-- Card 2 -->
-          <div class="col">
-            <div class="card card-option text-start" data-option="opcao2">
-              <div class="card-body">
-                <img src="assets/images/icon-advanced.svg" alt="">
-                <p class="card-text mb-0 mt-5">Advanced</p>
-                <p class="card-text"> $12/mo </p>
-              </div>
-            </div>
-          </div>
-      
-          <!-- Card 3 -->
-          <div class="col">
-            <div class="card card-option text-start" data-option="opcao3">
-              <div class="card-body">
-                <img src="assets/images/icon-pro.svg" alt="">
-                <p class="card-text mb-0 mt-5">Pro</p>
-                <p class="card-text">$15/mo</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-            <p>Monthly</p>
-        <label class="switch">
-           
-            <input type="checkbox" checked>
-            <span class="slider round"></span>
-            
-          </label>
-          <p>Yearly</p>
-        </div>
-        
-        <!-- Botão de envio -->
-        <div class="mt-3">
-          <button type="submit" class="btn btn-primary" id="submitBtn">Enviar</button>
-        </div>
-      </form>
 
-        
+            <!-- Card 2 -->
+            <div class="col">
+              <div class="card card-option text-start" data-option="opcao2">
+                <div class="card-body">
+                  <img src="assets/images/icon-advanced.svg" alt="" />
+                  <p class="card-text mb-0 mt-5">Advanced</p>
+                  <p class="card-text">$12/mo</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col">
+              <div class="card card-option text-start" data-option="opcao3">
+                <div class="card-body">
+                  <img src="assets/images/icon-pro.svg" alt="" />
+                  <p class="card-text mb-0 mt-5">Pro</p>
+                  <p class="card-text">$15/mo</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center justify-content-center mt-5">
+            <span id="monthly" class="active p-3">Monthly</span>
+            <label class="switch ">
+              <input type="checkbox" id="toggle" checked />
+              <span class="slider round"></span>
+            </label>
+            <span id="yearly" class="p-3 inactive">Yearly</span>
+          </div>
+
+          <!-- Botão de envio -->
+          <div class="mt-3">
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              Enviar
+            </button>
+          </div>
+        </form>
       </div>
     </div>
 
-   
+
+    <script>
+        function toggleChange(){
+            const mes = document.getElementById("monthly")
+            const toggle = document.getElementById("toggle")
+            const ano = document.getElementById("yearly")
+            console.log("vai dar certo")
+
+            toggle.addEventListener("change",() => {
+                if(toggle.checked){
+                    mes.classList.add("active")
+                    mes.classList.remove("inactive")
+                    ano.classList.remove("active")
+                    ano.classList.add("inactive")
+                }
+                else{
+                    mes.classList.remove("active")
+                    mes.classList.add("inactive")
+                    ano.classList.add("active")
+                    ano.classList.remove("inactive")
+                }
+            })
+        }
+        toggleChange()
+    </script>
   </body>
 </html>
