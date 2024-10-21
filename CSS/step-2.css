@@ -1,3 +1,7 @@
+@import url("index.css");
+
+
+
 .switch {
     position: relative;
     display: inline-block;
@@ -55,9 +59,30 @@
     background-color: hsl(213, 96%, 18%);
   }
   
+  .card {
+    max-width: 250px;
+    height: 190px;
+  }
+  .card-body {
+    border-radius: 8px;
+  }
   .slider.round:before {
     border-radius: 50%;
   }
+  .custom-border {
+    border: 1px solid white;
+  }
+ .custom-border:hover {
+    border-color: purple;
+ } 
+
+ .custom-borda {
+  border: 1px solid purple !important;
+ }
+#btn-back {
+  background-color: white;
+  color: var(--marine-blue);
+}
 
 
 /*Estilos aplicdos pelo js do toggle*/
