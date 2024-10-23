@@ -60,11 +60,12 @@
   }
   
   .card {
-    max-width: 250px;
-    height: 190px;
+    max-width: 200px;
+    height: 230px
   }
   .card-body {
     border-radius: 8px;
+   
   }
   .slider.round:before {
     border-radius: 50%;
@@ -84,7 +85,9 @@
   color: var(--marine-blue);
 }
 
-
+#btn-page2 {
+  margin-top: 10rem;
+}
 /*Estilos aplicdos pelo js do toggle*/
 .active {
     font-weight: bold; /* Usando <strong> no CSS */
@@ -94,4 +97,41 @@
 .inactive {
     color: #ccc; /* Cor quando inativo */
   }
-  
+
+
+/* mobile layout*/
+
+@media (max-width: 768px){
+    #form-page2 {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+   
+    #form-container p {
+      display: flex;
+    }
+    #form-container  .card{
+      max-width: 100%;
+      height: auto;
+      justify-content: center;
+    }
+    #form-container .card-body{
+      display: flex;
+    }
+    #form-container .card-body div p {
+      align-items: start;
+      justify-content: start;
+      margin-left: 1rem;
+    }
+    #text-align-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mt-5 {
+      margin-top: 0 !important;
+    }
+      
+}
