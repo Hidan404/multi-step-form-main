@@ -98,7 +98,10 @@
     color: #ccc; /* Cor quando inativo */
   }
 
-
+.custom-border div p:first-child {
+  color: var(--marine-blue);
+  font-weight: bolder;
+}
 /* mobile layout*/
 
 @media (max-width: 768px){
@@ -113,9 +116,10 @@
       display: flex;
     }
     #form-container  .card{
-      max-width: 100%;
+      max-width: 90%;
       height: auto;
       justify-content: center;
+      margin: auto;
     }
     #form-container .card-body{
       display: flex;
@@ -133,5 +137,11 @@
     .mt-5 {
       margin-top: 0 !important;
     }
-      
+    #btn-page2 {
+      margin-top: 4rem;
+    } 
+    #toggle-form {
+      padding-top: 3rem;
+    }
+   
 }
