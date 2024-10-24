@@ -1,0 +1,45 @@
+@import url("index.css");
+
+
+.box-card-text1 {
+    flex-grow: 1;/* Este elemento ocupará todo o espaço disponível */
+   
+}
+#box-card {
+   max-width: 90%;
+   max-height: 100px; 
+}
+
+.text-price-right {
+    padding-top: 5px;
+   margin-right: 1rem;
+   align-items: center;
+   
+}
+#color-text {
+    color: var(--purplish-blue);
+}
+.input-page3 {
+    margin: 0 2rem 0 2rem;
+}
+/* Remove a borda do checkbox */
+.custom-checkbox {
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Altera a cor do checkbox quando selecionado */
+.custom-checkbox:checked {
+    background-color: var(--purplish-blue);
+    border-color: transparent; /* Se precisar garantir que a borda fique transparente */
+}
+
+.custom-border {
+    border: 1px solid white;
+  }
+ .custom-border:hover {
+    border-color: var(--purplish-blue);
+    border-radius: 8px;
+ } 
