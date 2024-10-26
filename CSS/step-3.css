@@ -43,3 +43,21 @@
     border-color: var(--purplish-blue);
     border-radius: 8px;
  } 
+
+ #btn-page2 {
+    margin-top: 5rem;
+ }
+
+
+ @media (max-width: 768px){
+    .box-card-text1 p {
+        display: flex;
+    }
+
+    #btn-page2 {
+        margin-top: 0;
+     }
+    #box-card {
+        margin: auto;
+    } 
+ }

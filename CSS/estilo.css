@@ -103,11 +103,12 @@
         flex-direction: row !important;
         justify-content: space-evenly;
         gap: 1px;
-        width: 100vw;
+        width: 100vw !important;
         height: 25vh;
         background-image: url("/assets/images/bg-sidebar-mobile.svg");
+        background-position: center;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: cover;
     }
     #box-menu-1, #box-menu-2, #box-menu-3, #box-menu-4 {
         display: flex;
@@ -167,5 +168,6 @@
         margin-left: 1.2rem;
         width: 80%;
     }
+    
 }
 
