@@ -5,7 +5,7 @@
     flex-grow: 1;/* Este elemento ocupará todo o espaço disponível */
    
 }
-#box-card {
+#box-card1, #box-card2, #box-card3 {
    max-width: 90%;
    max-height: 100px; 
 }
@@ -55,9 +55,27 @@
     }
 
     #btn-page2 {
-        margin-top: 0;
+        margin-top: 3rem;
+       
      }
-    #box-card {
+    #box-card1, #box-card2, #box-card3 {
         margin: auto;
+        min-width: 94%;
+        max-height: 90px;
     } 
+    #box-card1, #box-card2, #box-card3 .mb-5 {
+        margin-bottom: 10px !important;
+    }
+    .no-wrap-text {
+        white-space: nowrap;      /* evita quebra de linha */
+        overflow: hidden;         /* oculta o conteúdo excedente */
+        font-size: 0.785rem;
+    }
+    .input-page3 {
+        margin: 0 1rem 0 1rem;
+    }  
+    #color-text {
+        margin-top: 2rem;
+        margin-left: 8px;
+    }
  }

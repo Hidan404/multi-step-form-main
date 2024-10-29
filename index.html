@@ -88,7 +88,7 @@
           Please provide your name, email address, and phone number.
         </p>
 
-        <form action="form" method="get" class="col form-initial">
+        <form action="" method="get" class="col form-initial">
           <div class="col mb-5">
             <label for="nome" class="form-label">Name</label>
             <input
@@ -121,48 +121,118 @@
           </div>
           <button type="submit" id="button-sub">Next Step</button>
         </form>
-
-        
       </div>
     </div>
 
-    <!-- Step 2 start -->
+    <!-- Etapas do form 2-->
 
-    <div style="display: none">
-      <!-- Step 2 end -->
+    <div
+      class="step main-right d-flex flex-column col-md-8 order-md-2"
+      id="step-2"
+      style="display: none"
+    >
+      <h1>Select your plan</h1>
+      <p id="text-mobile">you have the otion of monthly or yearly billing</p>
+      <form action="/submit" method="post" id="form-page2">
+        <div class="row row-cols-1 row-cols-md-3 g-2" id="form-container">
+          <!-- Card 1 -->
+          <div class="col">
+            <div
+              class="card custom-border card-option text-start custom-card"
+              data-option="opcao1"
+            >
+              <div class="card-body">
+                <img src="assets/images/icon-arcade.svg" alt="" />
+                <div id="">
+                  <p class="card-text mb-0 mt-5" id="first-p">Arcade</p>
+                  <p class="card-text">$9/mo</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <!-- Step 3 start -->
+          <!-- Card 2 -->
+          <div class="col">
+            <div
+              class="card custom-border card-option text-start custom-card"
+              data-option="opcao2"
+            >
+              <div class="card-body">
+                <img src="assets/images/icon-advanced.svg" alt="" />
+                <div>
+                  <p class="card-text mb-0 mt-5">Advanced</p>
+                  <p class="card-text">$12/mo</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      Pick add-ons Add-ons help enhance your gaming experience. Online service
-      Access to multiplayer games +$1/mo Larger storage Extra 1TB of cloud save
-      +$2/mo Customizable Profile Custom theme on your profile +$2/mo Go Back
-      Next Step
+          <!-- Card 3 -->
+          <div class="col">
+            <div
+              class="card custom-border card-option text-start custom-card"
+              data-option="opcao3"
+            >
+              <div class="card-body">
+                <img src="assets/images/icon-pro.svg" alt="" />
+                <div>
+                  <p class="card-text mb-0 mt-5 order-1">Pro</p>
+                  <p class="card-text order-2">$15/mo</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="d-flex align-items-center justify-content-center mt-5"
+          id="toggle-form"
+        >
+          <span id="monthly" class="active p-3">Monthly</span>
+          <label class="switch">
+            <input type="checkbox" id="toggle" checked />
+            <span class="slider round"></span>
+          </label>
+          <span id="yearly" class="p-3 inactive">Yearly</span>
+        </div>
 
-      <!-- Step 3 end -->
-
-      <!-- Step 4 start -->
-
-      Finishing up Double-check everything looks OK before confirming.
-
-      <!-- Dynamically add subscription and add-on selections here -->
-
-      Total (per month/year) Go Back Confirm
-
-      <!-- Step 4 end -->
-
-      <!-- Step 5 start -->
-
-      Thank you! Thanks for confirming your subscription! We hope you have fun
-      using our platform. If you ever need support, please feel free to email us
-      at support@loremgaming.com.
-
-      <!-- Step 5 end -->
-      <div class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="#">Your Name Here</a>.
-      </div>
+        <!-- Botão de envio -->
+        <div class="d-flex justify-content-between" id="btn-page2">
+          <button class="btn btn-primary order-2" id="submitBtn">
+            <strong>Next Step</strong>
+          </button>
+          <button class="btn btn-outline-white" id="btn-back">
+            <strong>Go back</strong>
+          </button>
+        </div>
+      </form>
     </div>
+
+    <!--Fim do step form 2-->
+
+    <!--Etapas do form 3-->
+
+    <div
+      class="step main-right d-flex flex-column col-md-8 order-md-2"
+      id="step-3"
+      style="display: none"
+    >
+      <!-- Conteúdo do passo 3 -->
+    </div>
+    <div
+      class="step main-right d-flex flex-column col-md-8 order-md-2"
+      id="step-4"
+      style="display: none"
+    >
+      <!-- Conteúdo do passo 4 -->
+    </div>
+    <div
+      class="step main-right d-flex flex-column col-md-8 order-md-2"
+      id="step-5"
+      style="display: none"
+    >
+      <!-- Conteúdo do passo 5 -->
+    </div>
+
+    <script src="JS/App.js"></script>
   </body>
 </html>
