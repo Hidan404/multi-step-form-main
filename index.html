@@ -18,6 +18,8 @@
     />
     <link rel="stylesheet" href="CSS/estilo.css" />
     <link rel="stylesheet" href="CSS/step-2.css" />
+    <link rel="stylesheet" href="CSS/step-3.css" />
+
     <title>Frontend Mentor | Multi-step form</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -28,6 +30,14 @@
       }
       .attribution a {
         color: hsl(228, 45%, 44%);
+      }
+
+      .step {
+        display: none !important; /* Esconde todos os passos */
+      }
+
+      .step.active {
+        display: flex !important; /* Mostra apenas o passo ativo */
       }
     </style>
   </head>
@@ -80,7 +90,7 @@
         </div>
       </aside>
       <div
-        class="step main-right d-flex flex-column col-md-8 order-md-2"
+        class="step active main-right d-flex flex-column col-md-8 order-md-2"
         id="step-1"
       >
         <h1>Personal info</h1>
@@ -119,120 +129,353 @@
               required
             />
           </div>
-          <button type="submit" id="button-sub">Next Step</button>
+          <button type="submit" id="button-sub" class="netxt-1">
+            Next Step
+          </button>
         </form>
       </div>
-    </div>
 
-    <!-- Etapas do form 2-->
+      <!-- Etapas do form 2-->
+      <div
+        class="step main-right d-flex flex-column col-md-8 order-md-2"
+        id="step-2"
+      >
+        <h1>Select your plan</h1>
+        <p id="text-mobile">you have the otion of monthly or yearly billing</p>
+        <form action="" method="post" id="form-page2">
+          <div class="row row-cols-1 row-cols-md-3 g-2" id="form-container">
+            <!-- Card 1 -->
+            <div class="col">
+              <div
+                class="card custom-border card-option text-start custom-card"
+                data-option="opcao1"
+              >
+                <div class="card-body">
+                  <img src="assets/images/icon-arcade.svg" alt="" />
+                  <div id="">
+                    <p class="card-text mb-0 mt-5" id="first-p">Arcade</p>
+                    <p class="card-text">$9/mo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <div
-      class="step main-right d-flex flex-column col-md-8 order-md-2"
-      id="step-2"
-      style="display: none"
-    >
-      <h1>Select your plan</h1>
-      <p id="text-mobile">you have the otion of monthly or yearly billing</p>
-      <form action="/submit" method="post" id="form-page2">
-        <div class="row row-cols-1 row-cols-md-3 g-2" id="form-container">
-          <!-- Card 1 -->
-          <div class="col">
-            <div
-              class="card custom-border card-option text-start custom-card"
-              data-option="opcao1"
-            >
-              <div class="card-body">
-                <img src="assets/images/icon-arcade.svg" alt="" />
-                <div id="">
-                  <p class="card-text mb-0 mt-5" id="first-p">Arcade</p>
-                  <p class="card-text">$9/mo</p>
+            <!-- Card 2 -->
+            <div class="col">
+              <div
+                class="card custom-border card-option text-start custom-card"
+                data-option="opcao2"
+              >
+                <div class="card-body">
+                  <img src="assets/images/icon-advanced.svg" alt="" />
+                  <div>
+                    <p class="card-text mb-0 mt-5">Advanced</p>
+                    <p class="card-text">$12/mo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col">
+              <div
+                class="card custom-border card-option text-start custom-card"
+                data-option="opcao3"
+              >
+                <div class="card-body">
+                  <img src="assets/images/icon-pro.svg" alt="" />
+                  <div>
+                    <p class="card-text mb-0 mt-5 order-1">Pro</p>
+                    <p class="card-text order-2">$15/mo</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div
+            class="d-flex align-items-center justify-content-center mt-5"
+            id="toggle-form"
+          >
+            <span id="monthly" class="active p-3">Monthly</span>
+            <label class="switch">
+              <input type="checkbox" id="toggle" checked />
+              <span class="slider round"></span>
+            </label>
+            <span id="yearly" class="p-3 inactive">Yearly</span>
+          </div>
 
-          <!-- Card 2 -->
-          <div class="col">
-            <div
-              class="card custom-border card-option text-start custom-card"
-              data-option="opcao2"
-            >
-              <div class="card-body">
-                <img src="assets/images/icon-advanced.svg" alt="" />
+          <!-- Botão de envio -->
+          <div class="d-flex justify-content-between" id="btn-page2">
+            <button class="btn btn-primary order-2" id="submitBtn">
+              <strong>Next Step</strong>
+            </button>
+            <button class="btn btn-outline-white" id="btn-back">
+              <strong>Go back</strong>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!--Fim do step form 2-->
+
+      <!--Começo do step 3 -->
+
+      <div
+        class="step main-right d-flex flex-column col-md-8 order-md-2"
+        id="step-3"
+      >
+        <h1>Pick add-ons</h1>
+        <p id="text-mobile">Add-ons help enhance your gaming experience.</p>
+        <form action="" class="col d-flex flex-column">
+          <div
+            id="box-card1"
+            class="custom-border col mb-5 d-flex align-items-center custom-border box-card-text1"
+          >
+            <input
+              type="checkbox"
+              class="input-page3 form-check-input custom-checkbox"
+            />
+            <div class="box-card-text1">
+              <p class="card-text mb-0 mt-4 no-wrap-text">Online service</p>
+              <p class="no-wrap-text">Access to multiplayer games</p>
+            </div>
+            <p class="text-price-right" id="color-text">+$1/mo</p>
+          </div>
+          <div
+            id="box-card2"
+            class="custom-border col mb-5 d-flex align-items-center custom-border box-card-text1"
+          >
+            <input
+              type="checkbox"
+              class="input-page3 form-check-input custom-checkbox"
+            />
+            <div class="box-card-text1">
+              <p class="card-text mb-0 mt-4 no-wrap-text">Larger storage</p>
+              <p class="no-wrap-text">Extra 1TB of cloud save</p>
+            </div>
+            <p class="text-price-right" id="color-text">+$2/mo</p>
+          </div>
+          <div
+            id="box-card3"
+            class="custom-border col mb-5 d-flex align-items-center custom-border box-card-text1"
+          >
+            <input
+              type="checkbox"
+              class="input-page3 form-check-input custom-checkbox"
+            />
+            <div class="box-card-text1">
+              <p class="card-text mb-0 mt-4 no-wrap-text">
+                Customizable Profile
+              </p>
+              <p class="no-wrap-text">Custom theme on your profile</p>
+            </div>
+            <p class="text-price-right" id="color-text">+$2/mo</p>
+          </div>
+
+          <div
+            class="d-flex justify-content-between footer-form-page3"
+            id="btn-page2"
+          >
+            <button class="btn btn-primary order-2" id="submitBtn">
+              <strong>Next Step</strong>
+            </button>
+            <button class="btn btn-outline-white" id="btn-back">
+              <strong>Go back</strong>
+            </button>
+          </div>
+        </form>
+      </div>
+      <!--Fim do step 3-->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      /*$(document).ready(function () {
+        let currentStep = 1;
+        const totalSteps = 5;
+
+        function showStep(step) {
+          $(".step").removeClass("active");
+          $(`#step-${step}`).addClass("active");
+        }
+
+        // Botão "Next" do Step 1
+        $("#button-sub").click(function (e) {
+          e.preventDefault();
+          currentStep++;
+          showStep(currentStep);
+        });
+
+        // Botão "Next" do Step 2
+        $("#submitBtn").click(function (e) {
+          e.preventDefault();
+          currentStep++;
+          showStep(currentStep);
+        });
+
+        // Botão "Back" do Step 2
+        $("#btn-back").click(function (e) {
+          e.preventDefault();
+          currentStep--;
+          showStep(currentStep);
+        });
+
+        // Botão "Back" do Step 3
+        $("#btn-back").click(function (e) {
+          e.preventDefault();
+          currentStep--;
+          showStep(currentStep);
+        });
+
+        // Botão "Back" do Step 3
+        $("#btn-back").click(function (e) {
+          e.preventDefault();
+          currentStep--;
+          showStep(currentStep);
+        });
+      });*/
+
+      $(document).ready(function () {
+    // Variáveis para controle de etapas e seleção de planos
+    let currentStep = 1;
+    const totalSteps = 3; // Defina o número total de steps aqui
+    let selectedPlanName = "";
+    let selectedPlanPrice = "";
+    let selectedPlanType = "monthly"; // Inicialmente no modo "Monthly"
+    let selectedPlans = [];
+
+    // Função para exibir o step atual
+    function showStep(step) {
+        $(".step").removeClass("active");
+        $(`#step-${step}`).addClass("active");
+    }
+
+    // Função para avançar para o próximo step
+    function nextStep() {
+        if (currentStep < totalSteps) {
+            currentStep++;
+            showStep(currentStep);
+        }
+    }
+
+    // Função para voltar ao step anterior
+    function previousStep() {
+        if (currentStep > 1) {
+            currentStep--;
+            showStep(currentStep);
+        }
+    }
+
+    // Botão "Next" do Step 1
+    $("#button-sub").click(function (e) {
+        e.preventDefault();
+        nextStep();
+    });
+
+    // Botão "Next" do Step 2
+    $("#submitBtn").click(function (e) {
+        e.preventDefault();
+        
+        // Verifica se um plano foi selecionado
+        if (!selectedPlanName || !selectedPlanPrice) {
+            alert("Por favor, selecione um plano.");
+            return;
+        }
+
+        nextStep();
+    });
+
+    // Botão "Back" do Step 2
+    $("#btn-back").click(function (e) {
+        e.preventDefault();
+        previousStep();
+    });
+
+    // Função para alternar o estado do toggle (Monthly / Yearly)
+    function toggleChange() {
+        const mes = $("#monthly");
+        const ano = $("#yearly");
+
+        $("#toggle").change(function () {
+            if ($(this).is(":checked")) {
+                mes.addClass("active").removeClass("inactive");
+                ano.removeClass("active").addClass("inactive");
+                selectedPlanType = "monthly"; // Armazenar o estado selecionado
+            } else {
+                mes.removeClass("active").addClass("inactive");
+                ano.addClass("active").removeClass("inactive");
+                selectedPlanType = "yearly"; // Armazenar o estado selecionado
+            }
+            console.log("Estado do toggle:", selectedPlanType);
+        });
+    }
+
+    toggleChange(); // Inicializa o comportamento do toggle
+
+    // Função para selecionar o card e armazenar as informações dos dois <p>
+    $(".card-body").click(function () {
+        // Remover a classe de borda dos outros cards
+        $(".card-body").removeClass("custom-borda");
+
+        // Adicionar a classe de borda ao card selecionado
+        $(this).addClass("custom-borda");
+
+        // Armazenar os valores dos dois <p> dentro do card selecionado
+        selectedPlanName = $(this).find("p:first").text(); // Nome do plano (ex: Arcade, Advanced, Pro)
+        selectedPlanPrice = $(this).find("p:last").text(); // Preço (ex: $9/mo, $12/mo, $15/mo)
+
+        console.log("Plano selecionado:", selectedPlanName, selectedPlanPrice);
+    });
+
+    // Função para capturar as seleções de checkboxes
+    $(".input-page3").change(function () {
+        const cardText1 = $(this).closest('.box-card-text1').find("p:first").text(); // Nome do serviço
+        const cardText2 = $(this).closest('.box-card-text1').find("p:last").text();  // Descrição do serviço
+        const cardPrice = $(this).next('.text-price-right').text(); // Preço
+
+        // Verifica se o checkbox está marcado
+        if (this.checked) {
+            // Verifica se já temos 3 planos selecionados
+            if (selectedPlans.length < 3) {
+                selectedPlans.push({ name: cardText1, description: cardText2, price: cardPrice });
+            } else {
+                alert("Você pode selecionar até 3 planos.");
+                $(this).prop("checked", false); // Desmarca o checkbox se já tiver 3 selecionados
+            }
+        } else {
+            // Remove o plano da lista caso o checkbox seja desmarcado
+            selectedPlans = selectedPlans.filter(plan => plan.name !== cardText1);
+        }
+    });
+
+    // Quando o botão "Next Step" for clicado, processa os planos selecionados
+    $("#submitBtn").click(function (e) {
+        e.preventDefault(); // Impede o envio do formulário
+
+        // Limpa a exibição anterior
+        $("#selected-plans").empty();
+
+        // Verifica se algum plano foi selecionado
+        if (selectedPlans.length === 0) {
+            alert("Por favor, selecione pelo menos um plano.");
+            return; // Não prossegue se não houver seleção
+        }
+
+        // Exibe os planos selecionados
+        selectedPlans.forEach(plan => {
+            $("#selected-plans").append(`
                 <div>
-                  <p class="card-text mb-0 mt-5">Advanced</p>
-                  <p class="card-text">$12/mo</p>
+                    <strong>${plan.name}</strong> - ${plan.description} - ${plan.price}
                 </div>
-              </div>
-            </div>
-          </div>
+            `);
+        });
 
-          <!-- Card 3 -->
-          <div class="col">
-            <div
-              class="card custom-border card-option text-start custom-card"
-              data-option="opcao3"
-            >
-              <div class="card-body">
-                <img src="assets/images/icon-pro.svg" alt="" />
-                <div>
-                  <p class="card-text mb-0 mt-5 order-1">Pro</p>
-                  <p class="card-text order-2">$15/mo</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="d-flex align-items-center justify-content-center mt-5"
-          id="toggle-form"
-        >
-          <span id="monthly" class="active p-3">Monthly</span>
-          <label class="switch">
-            <input type="checkbox" id="toggle" checked />
-            <span class="slider round"></span>
-          </label>
-          <span id="yearly" class="p-3 inactive">Yearly</span>
-        </div>
+        console.log("Planos selecionados:", selectedPlans);
+        nextStep();
+    });
+});
 
-        <!-- Botão de envio -->
-        <div class="d-flex justify-content-between" id="btn-page2">
-          <button class="btn btn-primary order-2" id="submitBtn">
-            <strong>Next Step</strong>
-          </button>
-          <button class="btn btn-outline-white" id="btn-back">
-            <strong>Go back</strong>
-          </button>
-        </div>
-      </form>
-    </div>
 
-    <!--Fim do step form 2-->
-
-    <!--Etapas do form 3-->
-
-    <div
-      class="step main-right d-flex flex-column col-md-8 order-md-2"
-      id="step-3"
-      style="display: none"
-    >
-      <!-- Conteúdo do passo 3 -->
-    </div>
-    <div
-      class="step main-right d-flex flex-column col-md-8 order-md-2"
-      id="step-4"
-      style="display: none"
-    >
-      <!-- Conteúdo do passo 4 -->
-    </div>
-    <div
-      class="step main-right d-flex flex-column col-md-8 order-md-2"
-      id="step-5"
-      style="display: none"
-    >
-      <!-- Conteúdo do passo 5 -->
-    </div>
-
-    <script src="JS/App.js"></script>
+    </script>
   </body>
 </html>

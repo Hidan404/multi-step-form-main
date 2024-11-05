@@ -1,42 +1,47 @@
-let currentStep = 1;
-const totalSteps = 5; // Total de passos que você possui
+$(document).ready(function() {
+    let currentStep = 1;
+    const totalSteps = 5;
 
-// Função para mostrar o passo atual
-function showStep(step) {
-    for (let i = 1; i <= totalSteps; i++) {
-        const stepDiv = document.getElementById(`step-${i}`);
-        stepDiv.style.display = (i === step) ? 'd-flex' : 'none';
+    function showStep(step) {
+        $('.step').removeClass('active');
+        $(`#step-${step}`).addClass('active');
     }
-}
 
-// Salvar dados e avançar para o próximo passo
-function nextStep() {
-    if (currentStep < totalSteps) {
-        currentStep++;
-        showStep(currentStep);
+    function updateReview() {
+        $('#review').text(`Name: ${$('#name').val()}, Email: ${$('#email').val()}, Address: ${$('#address').val()}, City: ${$('#city').val()}, Preference: ${$('#preferences').val()}`);
     }
-}
 
-// Voltar ao passo anterior
-function goBack() {
-    if (currentStep > 1) {
-        currentStep--;
-        showStep(currentStep);
-    }
-}
-
-// Inicializa a exibição do primeiro passo
-document.addEventListener('DOMContentLoaded', () => {
-    showStep(currentStep);
-
-    // Event listeners para botões
-    document.getElementById('button-sub').addEventListener('click', (event) => {
-        event.preventDefault(); // Impede o envio do formulário
-        nextStep();
+    // Next buttons
+    $('.next-1').click(function() {
+        showStep(++currentStep);
     });
 
-    document.getElementById('btn-back').addEventListener('click', (event) => {
-        event.preventDefault();
-        goBack();
+    $('.next-2').click(function() {
+        showStep(++currentStep);
+    });
+
+    $('.next-3').click(function() {
+        updateReview();
+        showStep(++currentStep);
+    });
+
+    // Back buttons
+    $('.back-1').click(function() {
+        showStep(--currentStep);
+    });
+
+    $('.back-2').click(function() {
+        showStep(--currentStep);
+    });
+
+    $('.back-3').click(function() {
+        showStep(--currentStep);
+    });
+
+    // Submit button
+    $('#submit').click(function() {
+        showStep(++currentStep);
+        // Aqui você pode adicionar a lógica para enviar os dados do formulário
+        alert('Form submitted!'); // Simulação de envio
     });
 });
